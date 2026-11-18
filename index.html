@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sea Power · Web Tactical</title>
+  <link rel="stylesheet" href="src/ui/styles/graphite.css">
+  <script type="importmap">
+  { "imports": { "three": "./vendor/three/build/three.module.js", "three/addons/": "./vendor/three/examples/jsm/" } }
+  </script>
+</head>
+<body>
+  <div id="webgl-stage"></div>
+  <div id="hud">
+    <header id="topbar">
+      <div id="mission-name">—</div>
+      <div id="clock">00:00:00</div>
+      <div class="spacer"></div>
+      <button data-act="pause" title="Space">⏸</button>
+      <button data-act="time-dec" title="Decrease time compression (−)">−</button>
+      <button data-act="time-stop" title="Real time (I)">1×</button>
+      <button data-act="time-inc" title="Increase time compression (=)">+</button>
+      <button data-act="cam" title="F1 follow · F2 free · F3 flyby · F4 smooth">Follow</button>
+      <button data-act="deck" title="Flight deck (Shift+F)">✈</button>
+      <button data-act="map" title="Show or hide the tactical display">Map</button>
+      <button data-act="reveal" title="Debug: show all units">Reveal</button>
+      <button data-act="menu">Missions</button>
+    </header>
+    <aside id="units"><h3>Formation</h3><div id="unit-list"></div><h3>Contacts</h3><div id="contact-list"></div></aside>
+    <section id="control"></section>
+    <section id="log"></section>
+    <div id="minimap">
+      <div id="map-title">Tactical Display<span class="map-btns"><button id="map-fit" title="Centre on selected (C)" aria-label="Centre map">⌖</button><button id="map-max" title="Fullscreen (Tab)" aria-label="Maximize map">▢</button><button id="map-close" title="Hide" aria-label="Hide map">×</button></span></div>
+      <canvas id="map-canvas"></canvas>
+      <div class="map-edge" data-edge="n"></div><div class="map-edge" data-edge="s"></div>
+      <div class="map-edge" data-edge="w"></div><div class="map-edge" data-edge="e"></div>
+      <div class="map-edge" data-edge="nw"></div><div class="map-edge" data-edge="ne"></div>
+      <div class="map-edge" data-edge="sw"></div><div class="map-edge" data-edge="se"></div>
+    </div>
+    <button id="map-toggle" class="on" title="Show or hide the tactical display" aria-label="Map">▦</button>
+    <div id="toast"></div>
+    <section id="brief" class="hidden"><div id="brief-text"></div><div id="brief-actions"></div></section>
+    <section id="deck" class="hidden"><h3>Flight Deck</h3><div id="deck-body"></div></section>
+    <div id="menu"><div class="panel"><h2>Sea Power · Web</h2><p id="menu-sub">Select a mission</p><div id="mission-list"></div><div class="row"><button id="start" class="primary">Start mission</button></div><p class="fine">Controls: drag = orbit · wheel = zoom · click = select · right-click water = course/waypoint (Shift = add) · right-click enemy = set target · F1 follow cam · F2 free cam (WASD/RF fly, Shift boost) · F3 flyby · F4 smooth follow · W/S telegraph · A/D course · Shift+A/S air/surface radar · Shift+E EMCON · Shift+W cycle ROE (tight / hold / free) · F fire · Space pause · =/− time · I real time · Backspace hide HUD · 1–0 select slot · Ctrl+1–0 store slot · Shift+←/→ next ship · T next target · Tab map · M reset map · C centre map · Del waypoint</p></div></div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

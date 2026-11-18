@@ -1,0 +1,6 @@
+# Derived from the user's own licensed copy of the game — never commit or redistribute.
+/data/
+/assets_extracted/
+/tools/_py/
+/tools/_ilspy_types.txt
+node_modules/
